@@ -1,0 +1,291 @@
+:root {
+    --primary-color: #355C7D;
+    --background-gradient-start: #eefff9;
+    --background-gradient-middle: #ffccc1;
+    --background-gradient-end: #dcdbff;
+    --text-color: #fff;
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    color: var(--primary-color);
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10%;
+    border-bottom: 1px solid var(--primary-color);
+    z-index: 10;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 20px 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+nav .logo {
+    width: 200px;
+    cursor: pointer;
+}
+
+.nav-btn {
+    background: var(--primary-color);
+    color: var(--text-color);
+    font-size: 16px;
+    padding: 15px 25px;
+    border: 0;
+    outline: 0;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.nav-btn img {
+    width: 16px;
+    margin-left: 8px;
+}
+
+nav ul li a {
+    color: var(--primary-color); 
+    text-decoration: none; 
+    font-weight: 400; 
+    transition: font-weight 0.3s ease, text-decoration 0.3s ease; 
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    font-weight: 600; 
+}
+
+nav ul li a.active {
+    font-weight: 700; 
+    text-decoration: underline;
+}
+
+.header {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(var(--background-gradient-start) 0%, var(--background-gradient-middle) 49%, var(--background-gradient-end) 100%);
+    padding: 0 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header h1 {
+    margin-top: 100px;
+    font-size: 13vw;
+    line-height: 11vw;
+}
+
+.btn-container {
+    margin: 20px 0;
+}
+
+.header button {
+    border: 0;
+    outline: 0;
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.btn-request {
+    background: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 20px 10px 30px;
+    border-radius: 40px;
+}
+
+.btn-request img {
+    width: 40px;
+    background: var(--text-color);
+    border-radius: 50%;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.btn-about {
+    background: transparent;
+    text-decoration: underline;
+}
+
+.btn-about img {
+    width: 20px;
+    margin-left: 10px;
+}
+
+.header p {
+    max-width: 500px;
+    font-weight: 500;
+}
+
+.user-img {
+    height: 80vh;
+    max-width: 500px;
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+}
+
+/* ------------ Animation -------------- */
+.header h1 span {
+    background: linear-gradient(#000, #000);
+    background-repeat: no-repeat;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-size: 0%;
+}
+
+.header h1 span:first-child {
+    animation: textcolor1 2s linear infinite alternate;
+}
+
+.header h1 span:last-child {
+    animation: textcolor2 2s linear infinite alternate;
+}
+
+@keyframes textcolor1 {
+    0% {
+        background-size: 0%;
+    }
+    40% {
+        background-size: 100%;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
+
+@keyframes textcolor2 {
+    0% {
+        background-size: 0%;
+    }
+    40% {
+        background-size: 0%;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
+
+.menu-icon {
+    display: none;
+}
+
+/* ------------ Media Queries -------------- */
+@media only screen and (max-width: 600px) {
+    nav ul {
+        position: absolute;
+        width: 100%;
+        background: var(--primary-color);
+        color: var(--text-color);
+        left: 0;
+        top: 100%;
+        text-align: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+
+    nav ul li a {
+        color: var(--text-color); /* Ensure the color is still controlled by the variable */
+        font-weight: 400; /* Normal font weight by default */
+    }
+    
+    nav ul li a.active {
+        font-weight: 700; /* Make the active link bold */
+        text-decoration: underline; /* Underline the active link */
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    nav .logo {
+        width: 150px;
+    }
+
+    nav ul li {
+        margin: 10px;
+        font-size: 14px;
+    }
+
+    .menu-icon {
+        display: block;
+        width: 30px;
+    }
+
+    .show-menu {
+        max-height: 60px;
+    }
+
+    .header {
+        min-height: auto;
+        padding: 0;
+    }
+
+    .user-img {
+        height: 90vh;
+        right: auto;
+        position: relative;
+        margin-top: 100px;
+    }
+
+    .header-content {
+        position: absolute;
+        bottom: 0;
+        padding: 0 10%;
+        z-index: 2;
+        padding-bottom: 40px;
+        background: linear-gradient(transparent, var(--background-gradient-middle));
+    }
+
+    .btn-container {
+        margin: 5px 0;
+    }
+
+    .header button {
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    .btn-request, .btn-about {
+        padding: 7px 7px 7px 20px;
+        margin-bottom: 10px;
+    }
+
+    .btn-request img {
+        width: 30px;
+        padding: 5px;
+        margin-left: 15px;
+    }
+
+    .btn-about img {
+        width: 12px;
+        margin-left: 5px;
+    }
+
+    .header h1 {
+        font-size: 70px;
+        line-height: 60px;
+        margin-bottom: 20px;
+    }
+    .header p {
+        margin-left: 10px;
+    }
+}
